@@ -98,14 +98,14 @@ aws elbv2 create-target-group --name my-targets --protocol HTTP --port 80 \
 ## 9. Register my Instance to the Target Group
 
 ```
-aws elbv2 register-targets --target-group-arn <my-targetgroup-arn>  \
+aws elbv2 register-targets --target-group-arn <my-target-group-arn>  \
 --targets Id=<my-vpc-instance-id>
 ```
 
 ## 10. Create a listener for my load balancer with a default rule that forwards requests to my target group
 
 ```
-aws elbv2 create-listener --load-balancer-arn <my-loadbalancer-arn> \
+aws elbv2 create-listener --load-balancer-arn <my-load-balancer-arn> \
 --protocol HTTP --port 80  \
---default-actions Type=forward,TargetGroupArn=<my-targetgroup-arn>
+--default-actions Type=forward,TargetGroupArn=<my-target-group-arn>
 ```
